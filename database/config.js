@@ -1,8 +1,9 @@
 const mongoose = require('mongoose');
+// console.log(process.env.DB_CNN);
 
 const dbConnection = async () => {
     try {
-        await mongoose.connect(process.env.DB_CNN, {
+        await mongoose.connect('mongodb+srv://mern_user:H4pmlKrk5LfXkIXf@calendardb.ielvnye.mongodb.net/mern_calendar', {
             useNewUrlParser: true,
             useUnifiedTopology: true,
             // useCreateIndex: true

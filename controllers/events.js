@@ -129,11 +129,6 @@ const borrarEvento = async (req, res = response) => {
             msg: 'Hable con el administrador'
         })
     }
-
-    // res.json({
-    //     ok: true,
-    //     msg: 'borrarEvento'
-    // })
 }
 
 module.exports = {
