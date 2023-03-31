@@ -6,7 +6,7 @@ require('dotenv').config();
 const generarJWT = (uid = '', name) => {
     return new Promise((resolve, reject) => {
         const payload = { uid, name };
-        jwt.sign(payload, process.env.JWT_SECRET, {
+        jwt.sign(payload, '3st0EsL4Cl4v3S3cr3t4', {
             expiresIn: '4h'
         }, (err, token) => {
             if (err) {
