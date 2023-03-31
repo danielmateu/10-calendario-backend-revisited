@@ -10,6 +10,9 @@ const getEventos = async (req, res = response) => {
 }
 
 const crearEvento = async (req, res = response) => {
+
+    // Verificar que tenga un evento
+    
     res.json({
         ok: true,
         msg: 'crearEvento'
