@@ -1,8 +1,8 @@
 const { response } = require('express');
 const Usuario = require('../models/Usuario');
 const bcrypt = require('bcryptjs');
-
 const { generarJWT } = require('../helpers/jwt');
+
 
 const crearUsuario = async (req, res = response) => {
 
@@ -33,9 +33,10 @@ const crearUsuario = async (req, res = response) => {
         res.status(201).json({
             ok: true,
             uid: usuario.id,
-            name: usuario.name
+            name: usuario.name,
+            token
             // message: 'crearUsuario',
-        }); 
+        });
 
     } catch (error) {
         console.log(error);
@@ -46,12 +47,12 @@ const crearUsuario = async (req, res = response) => {
     }
 }
 
-const loginUsuario = async(req, res = response) => {
+const loginUsuario = async (req, res = response) => {
 
     const { email, password } = req.body;
 
     try {
-        
+
         let usuario = await Usuario.findOne({ email });
         // Validar si el usuario existe
         if (!usuario) {
@@ -87,21 +88,20 @@ const loginUsuario = async(req, res = response) => {
             message: 'Hable con el administrador'
         });
     }
-
-    // res.status(201).json({
-    //     ok: true,
-    //     message: 'login',
-    //     // user: req.body
-    //     email,
-    //     password
-    // });
 }
 
-const revalidarToken = (req, res = response) => {
+const revalidarToken = async (req, res = response) => {
 
+    // const uid = req.uid;
+    // const name = req.name;
+    const { uid, name } = req;
+
+    // Generar el JWT
+    const token = await generarJWT(uid, name);
+    
     res.json({
         ok: true,
-        message: 'renew'
+        token
     });
 }
 
