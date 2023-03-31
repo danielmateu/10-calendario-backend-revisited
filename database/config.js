@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 require('dotenv').config();
-console.log(process.env.DB_CNN);
+// console.log(process.env.DB_CNN);
 
 const dbConnection = async () => {
     try {
-        await mongoose.connect( 'mongodb+srv://mern_user:H4pmlKrk5LfXkIXf@calendardb.ielvnye.mongodb.net/mern_calendar' , {
+        await mongoose.connect( process.env.DB_CNN , {
             // useNewUrlParser: true, 
             // useUnifiedTopology: true,
             // useCreateIndex: true
