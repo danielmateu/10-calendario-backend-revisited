@@ -4,7 +4,6 @@ require('dotenv').config();
 
 const dbConnection = async () => {
     try {
-        // await mongoose.connect('mongodb+srv://mern_user:H4pmlKrk5LfXkIXf@calendardb.ielvnye.mongodb.net/mern_calendar')
         await mongoose.connect(process.env.DB_CNN)
         console.log('DB Online')
     } catch (error) {

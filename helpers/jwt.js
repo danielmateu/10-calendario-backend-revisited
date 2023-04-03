@@ -2,7 +2,7 @@
 // JWT
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
-// console.log(process.env.JWT_SECRET);
+
 
 const generarJWT = (uid = '', name) => {
     return new Promise((resolve, reject) => {
