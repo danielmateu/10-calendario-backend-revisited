@@ -1,6 +1,7 @@
 const express = require('express');
 const { dbConnection } = require('./database/config');
 const cors = require('cors');
+const { patch } = require('./routes/auth');
 require('dotenv').config();
 
 //Create express app
@@ -25,7 +26,7 @@ app.use('/api/auth', require('./routes/auth'));
 app.use('/api/events', require('./routes/events'));
 
 app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname + '/public/index.html'));
+    res.sendFile(patch.resolve(__dirname + '/public/index.html'));
 });
 
 // Escuchar peticiones
